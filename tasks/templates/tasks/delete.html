@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Página de Eliminación de Tareas</h1>
+<p>
+  <strong>Título:</strong>
+  {{task.title}}
+</p>
+
+<p>
+  <strong>Contenido:</strong>
+  {{task.content}}
+</p>
+<form action="{% url 'tasks:delete' task.id %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Eliminar">
+</form>
+
+<br>
+
+<a href="{% url 'tasks:index' %}">Volver</a>
+{% endblock %}

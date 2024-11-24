@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2>Detalles del Usuario</h2>
+<p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+<p><strong>Correo electrónico:</strong> {{ user.email }}</p>
+<p><strong>Edad:</strong> {{ user.age }}</p>
+<a href="{% url 'edit_user' user.id %}">Editar usuario</a>
+<a href="{% url 'change_password' %}">Cambiar contraseña</a>
+<a href="{% url 'delete_user' user.id %}">Eliminar cuenta</a>
+{% endblock %}

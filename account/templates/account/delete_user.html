@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2 class="text-danger">Eliminar Usuario</h2>
+<p>¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar Cuenta</button>
+    <a href="{% url 'detail_user' pk=request.user.pk %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

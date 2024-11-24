@@ -1,0 +1,33 @@
+{% load static %}
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Task</title>
+    <link rel="stylesheet" href="{% static 'tasks/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'tasks/css/style.css' %}">
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'tasks:index' %}">Lista de tareas</a></li>
+        <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+        <li><a href="{% url 'detail_user' user.pk %}">Información del miembro</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Acceso a la cuenta</a></li>
+        <li><a href="{% url 'signup' %}">Registro de cuenta</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    <main>
+      <div>
+        {% block main %}
+        {% endblock %}
+      </div>
+    </main>
+  </body>
+
+</html>
